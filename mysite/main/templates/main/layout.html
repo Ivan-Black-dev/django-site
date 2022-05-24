@@ -20,6 +20,15 @@
             <a href="{% url 'about' %}"><li><i class="fa-regular fa-paper-plane"></i></i>О нас</li></a>
             <a href=""><li><i class="fa-solid fa-arrow-right-to-bracket"></i>Вход</li></a>
         </ul>
+        
+        {% if user.is_authenticated %}
+            <p>Hi {{ user.username }}!</p>
+            <p><a href="{% url 'logout' %}">Выйти</a></p>
+        {% else %}
+            <p>You are not logged in.</p>
+            <a href="{% url 'login' %}">Войти</a>
+        {% endif %}
+    
     </aside>
 
     <main>
